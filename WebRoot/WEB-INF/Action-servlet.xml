@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http:www.springframework.org//dtd/spring-beans.dtd">
+<beans
+	default-autowire="no">
+	<bean
+		name="/main"
+		class="com.feifan.struts.action.MainAction">
+		<property
+			name="logisticsDaoImpl">
+			<ref
+				bean="logisticsDaoImpl" />
+		</property>
+	</bean>
+	<bean
+		name="/register"
+		class="com.feifan.struts.action.RegisterAction">
+		<property
+			name="logisticsDaoImpl">
+			<ref
+				bean="logisticsDaoImpl" />
+		</property>
+	</bean>
+	<bean
+		name="/moRegister"
+		class="com.feifan.struts.action.MoRegisterAction">
+		<property
+			name="logisticsDaoImpl">
+			<ref
+				bean="logisticsDaoImpl" />
+		</property>
+	</bean>
+</beans>

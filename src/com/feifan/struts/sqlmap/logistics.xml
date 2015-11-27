@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap
+	namespace="logistics">
+	<select
+		resultClass="com.feifan.struts.bean.EntityForDownList"
+		id="shengSelect">
+		select id, name 
+		from province a
+	</select>
+	
+	<select
+		parameterClass="java.lang.String"
+		resultClass="com.feifan.struts.bean.EntityForDownList"
+		id="shiSelect">
+		select id, name 
+		from shi a
+		where a.fatherid = #id#
+	</select>
+	
+	<select
+		parameterClass="java.lang.String"
+		resultClass="com.feifan.struts.bean.EntityForDownList"
+		id="xianSelect">
+		select id, name 
+		from district a
+		where a.fatherid = #id#
+	</select>
+	
+	<select
+		resultClass="com.feifan.struts.bean.EntityForResultList"
+		id="allResultSelect">
+		select shi.name shi,wuliuinfo.info info ,wuliuinfo.release_time time,substring_index(wuliuinfo.mobile,'；',1) mobile,user.telephone telephone
+		from wuliuinfo
+		inner join user on wuliuinfo.username=user.username
+		inner join shi on wuliuinfo.shi_id=shi.id
+		WHERE wuliuinfo.info_type='HUOYUAN'
+		order by wuliuinfo.release_time desc limit 400
+	</select>
+	
+	<select
+	    parameterClass="java.lang.String"
+		resultClass="com.feifan.struts.bean.EntityForResultList"
+		id="resultSelect">
+		select shi.name shi,wuliuinfo.info info ,wuliuinfo.release_time time,substring_index(wuliuinfo.mobile,'；',1) mobile,user.telephone telephone
+		from wuliuinfo
+		inner join user on wuliuinfo.username=user.username
+		inner join shi on wuliuinfo.shi_id=shi.id
+		WHERE wuliuinfo.info_type='HUOYUAN'
+		and shi.id in ($ids$)
+		order by wuliuinfo.release_time desc limit 400
+	</select>
+	
+	<select
+	    parameterClass="com.feifan.struts.dao.SearchConditionDaoBean"
+		resultClass="com.feifan.struts.bean.EntityForResultList"
+		id="conditionAllResultSelect">
+		select shi.name shi,wuliuinfo.info info ,wuliuinfo.release_time time,substring_index(wuliuinfo.mobile,'；',1) mobile,user.telephone telephone
+		from wuliuinfo
+		inner join user on wuliuinfo.username=user.username
+		inner join shi on wuliuinfo.shi_id=shi.id
+		WHERE wuliuinfo.info_type='HUOYUAN'
+		<iterate property="keyStrings" prepend="and" open="(" close=")" conjunction="or" >
+			wuliuinfo.info like CONCAT('%',#keyStrings[].name#,'%') 
+		</iterate>
+		order by wuliuinfo.release_time desc limit 300
+	</select>
+	
+	<select
+	    parameterClass="com.feifan.struts.dao.SearchConditionDaoBean"
+		resultClass="com.feifan.struts.bean.EntityForResultList"
+		id="conditionResultSelect">
+		select shi.name shi,wuliuinfo.info info ,wuliuinfo.release_time time,substring_index(wuliuinfo.mobile,'；',1) mobile,user.telephone telephone
+		from wuliuinfo
+		inner join user on wuliuinfo.username=user.username
+		inner join shi on wuliuinfo.shi_id=shi.id
+		WHERE wuliuinfo.info_type='HUOYUAN'
+		and shi.id in ($ids$)
+		<iterate property="keyStrings" prepend="and" open="(" close=")" conjunction="or" >
+			wuliuinfo.info like CONCAT('%',#keyStrings[].name#,'%') 
+		</iterate>
+		order by wuliuinfo.release_time desc limit 300
+	</select>
+	<select
+		resultClass="java.lang.String"
+		id="marqueeSelect">
+		<![CDATA[
+		select info from guanggao where now() <= stoptime
+		]]>
+	</select>
+	
+	<select
+		parameterClass="java.lang.String"
+		resultClass="java.lang.Long"
+		id="userSelect">
+		select count(*) from user where username = #username#
+	</select>
+
+	<insert
+		parameterClass="com.feifan.struts.dao.UserDaoBean"
+		id="userInsert">
+		insert into user(companyname,username,password,realname,shenfenid,shi_id,mobile,telephone, address,register_date,stop_date,send_able)
+		select #companyname#,#username#,#password#,#realname#,#shenfenid#,#shi_id#,#mobile#,#telephone#,#address#,now(),DATE_ADD(now(), INTERVAL (select paramvalue from setting where paramkey='yanchangdays') day),1 
+		from   dual
+		where  not exists
+		(select * from user where username = #username#)
+	    <selectKey resultClass="int" keyProperty="id" >  
+	        SELECT @@IDENTITY AS id  
+	    </selectKey> 
+	</insert>
+
+	<select
+		parameterClass="java.lang.String"
+		resultClass="java.lang.String"
+		id="paramSelect">
+		select paramvalue from setting where paramkey=#paramkey#
+	</select>
+	
+	<update
+		parameterClass="java.lang.String"
+		id="paramUpdate">
+		update setting set paramValue=paramValue+1 where paramKey =#paramkey#;
+	</update>
+</sqlMap>

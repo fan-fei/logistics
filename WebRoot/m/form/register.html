@@ -1,0 +1,120 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>亿尔配货</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	</head>
+
+	<body>
+	<div data-role="page" data-dom-cache="true" id="regist">
+		<div data-role="header"  data-theme="c">
+			<h1>亿尔配货</h1>
+			<div data-role="navbar">
+			  <ul>
+			    <li><a href="/m/form/main.html"  data-role="button" data-icon="home" data-transition="slidefade" data-direction="reverse">主页</a></li>
+			    <li><a href="/m/form/register.html"  data-role="button" data-icon="user" data-transition="pop">注册</a></li>
+			    <li><a href="/m/form/aboutUs.html"  data-role="button" data-icon="info" data-transition="slidefade">关于</a></li>
+			  </ul>
+			</div>
+		</div>
+		<div data-role="content" data-theme="c">
+	
+			<script type="text/javascript" src="/m/js/logistics.js"></script>
+			
+			<form name="moRegisterForm" id="moRegisterForm" method="post" action="/moRegister.do">
+				<div data-role="fieldcontain">
+					<p align="center">欢迎您注册亿尔配货网！</p>
+					<span><label for="companyname">单位名称:</label></span>
+					<div id="companynameError" style="font-size: small;color: red;"></div>
+					<input type="text" name="companyname" id="companyname" maxlength="12">
+
+					<span><label for="username">用户名:</label></span>
+					<div id="usernameError" style="font-size: small;color: red;"></div>
+					<input type="text" name="username" maxlength="8" value="" id="username">
+
+					<span><label for="password">密码:</label></span>
+					<div id="passwordError" style="font-size: small;color: red;"></div>
+					<input type="password" name="password" id="password" maxlength="8" >
+
+					<span><label for="passwordConfirm">密码确认:</label></span>
+					<div id="passwordConfirmError" style="font-size: small;color: red;"></div>
+					<input type="password" name="passwordConfirm" id="passwordConfirm" maxlength="8" >
+
+					<span><label for="realname">真实姓名:</label></span>
+					<div id="realnameError" style="font-size: small;color: red;"></div>
+					<input type="text" name="realname" maxlength="4" value="" id="realname">
+
+					<span><label for="shenfenid">身份证号:</label></span>
+					<div id="shenfenidError" style="font-size: small;color: red;"></div>
+					<input type="text" name="shenfenid" maxlength="18" value="" id="shenfenid">
+					
+					<span><label for="sheng1">省份:</label></span>
+					<div id="sheng1Error" style="font-size: small;color: red;"></div>
+					<select name="sheng1" id="sheng1"></select>
+					
+					<span><label for="shi1">城市:</label></span>
+					<div id="shi1Error" style="font-size: small;color: red;"></div>
+					<select name="shi1" id="shi1"></select>
+					
+					<span><label for="address">地址信息:</label></span>
+					<div id="addressError" style="font-size: small;color: red;"></div>
+					<textarea name="address" id="address" maxlength="100"></textarea>
+					
+					<span><label for="mobile">手机:</label></span>
+					<div id="mobileError" style="font-size: small;color: red;"></div>
+					<input type="text" name="mobile" maxlength="11" value="" id="mobile">
+					
+					<span><label for="telephone">固定电话:</label></span>
+					<div id="telephoneError" style="font-size: small;color: red;"></div>
+					<input type="text" name="telephone" maxlength="12" value="" id="telephone">
+					
+					<div id="otherInfoError" style="font-size: small;color: red;"></div>
+				    <br><span><input id="mySubmit" type="button" data-theme="c" value="立即注册"/></span>
+				    <input type="hidden" name="formEvent" value="" id="formEvent">
+				    <input type="hidden" name="currentElement" value="" id="currentElement">
+			    </div>
+
+			</form>
+		</div>
+		
+		<div data-role="footer" data-theme="c">
+			<h1>版权所有 亿尔配货</h1>
+		</div>
+	</div>
+	
+	<div data-role="page" data-dom-cache="true" id="registSuccess">
+		<div data-role="header"  data-theme="c">
+			<h1>亿尔配货</h1>
+			<div data-role="navbar">
+			  <ul>
+			    <li><a href="/m/form/main.html"  data-role="button" data-icon="home" data-iconpos="left" data-transition="slidefade" data-direction="reverse">主页</a></li>
+			    <li><a href="/m/form/register.html"  data-role="button" data-icon="user" data-transition="pop">注册</a></li>
+			    <li><a href="/m/form/aboutUs.html"  data-role="button" data-icon="info" data-transition="slidefade">关于</a></li>
+			  </ul>
+			</div>
+		</div>
+		<div data-role="content" data-theme="c">
+		
+			<div data-role="fieldcontain">
+				<p align="center">注册成功！</p>
+				感谢您注册亿尔物流网！
+				<br><br>请牢记您的用户名：<div id="usernameRsp" style="font-style: italic;"></div>
+				<br><br>
+				<div align="center"><a href="#regist" data-transition="slidedown">返回注册页面</a></div>
+				<br><br><br><br><br><br><br><br>
+			</div>
+		
+		</div>
+		<div data-role="footer" data-theme="c">
+			<h1>版权所有 亿尔配货</h1>
+		</div>
+	</div>
+		
+	</body>
+</html>

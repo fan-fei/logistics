@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+a:link {
+	color: black;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+a:ACTIVE {
+	color: black;
+}
+
+a {
+	text-decoration: none;
+	font-size: 14;
+}
+
+td {
+	　　word-break: break-all; /*支持IE，chrome，FF不支持*/
+	　　word-wrap: break-word; /*支持IE，chrome，FF*/
+}
+
+.btn {
+	BORDER-LEFT: #ff9966 1px solid; /*左边框*/
+	BORDER-RIGHT: #ff9966 1px solid; /*右边框*/
+	BORDER-TOP: #ff9966 1px solid; /*上边框*/
+	BORDER-BOTTOM: #ff9966 1px solid; /*下边框*/
+	PADDING-LEFT: 2px; /*左间隙*/
+	PADDING-RIGHT: 2px; /*右间隙*/
+	PADDING-TOP: 2px; /*上间隙*/
+	PADDING-BOTTOM: 2px; /*下间隙*/
+	FONT-SIZE: 18px; /*字号*/
+	CURSOR: hand; /*光标类型*/
+	COLOR: blue; /*字色*/
+	FILTER:progid:DXImageTransform.Microsoft.Gradient ( GradientType = 0,StartColorStr = #ffffff, EndColorStr = #ff9966 ); /*滤镜*/
+}
+.btn2 {
+	margin:4px 5px 5px 5px;
+	BORDER-LEFT: #ff9966 1px solid; /*左边框*/
+	BORDER-RIGHT: #ff9966 1px solid; /*右边框*/
+	BORDER-TOP: #ff9966 1px solid; /*上边框*/
+	BORDER-BOTTOM: #ff9966 1px solid; /*下边框*/
+	PADDING-LEFT: 2px; /*左间隙*/
+	PADDING-RIGHT: 2px; /*右间隙*/
+	PADDING-TOP: 2px; /*上间隙*/
+	PADDING-BOTTOM: 2px; /*下间隙*/
+	FONT-SIZE: 13px; /*字号*/
+	CURSOR: hand; /*光标类型*/
+	COLOR: black; /*字色*/
+	FILTER:progid:DXImageTransform.Microsoft.Gradient ( GradientType = 0,StartColorStr = #ffffff, EndColorStr = silver ); /*滤镜*/
+}

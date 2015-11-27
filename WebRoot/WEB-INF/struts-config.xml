@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean
+			name="mainForm"
+			type="com.feifan.struts.form.MainForm" />
+		<form-bean
+			name="registerForm"
+			type="com.feifan.struts.form.RegisterForm" />
+		<form-bean
+			name="moRegisterForm"
+			type="com.feifan.struts.form.MoRegisterForm" />
+	</form-beans>
+
+	<global-exceptions />
+	<global-forwards />
+	<action-mappings>
+
+		<action
+			path="/main"
+			attribute="mainForm"
+			input="/p/form/right.jsp"
+			name="mainForm"
+			scope="session"
+			type="com.feifan.struts.action.MainAction">
+			<set-property
+				property="cancellable"
+				value="true" />
+			<forward
+				name="main"
+				path="/p/form/main.jsp" />
+		</action>
+
+		<action
+			path="/register"
+			attribute="registerForm"
+			input="/p/form/register.jsp"
+			name="registerForm"
+			scope="request"
+			type="com.feifan.struts.action.RegisterAction">
+			<set-property
+				property="cancellable"
+				value="true" />
+			<forward
+				name="success"
+				path="/p/form/registerSuccess.jsp" />
+			<forward
+				name="init"
+				path="/p/form/register.jsp" />
+		</action>
+
+		<action
+			path="/moRegister"
+			attribute="moRegisterForm"
+			input="/m/form/register.html"
+			name="moRegisterForm"
+			scope="request"
+			type="com.feifan.struts.action.MoRegisterAction">
+			<set-property
+				property="cancellable"
+				value="true" />
+		</action>
+	</action-mappings>
+
+	<controller
+		processorClass="org.springframework.web.struts.DelegatingRequestProcessor"></controller>
+	<message-resources
+		parameter="com.feifan.struts.logistics" />
+
+	<plug-in
+		className="org.springframework.web.struts.ContextLoaderPlugIn">
+		<set-property
+			property="contextConfigLocation"
+			value="/WEB-INF/Action-servlet.xml" />
+	</plug-in>
+</struts-config>
+

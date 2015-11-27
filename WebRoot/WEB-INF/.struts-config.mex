@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/main.do" location="0,154" dimension="250,108" />
+  <StrutsActivity path="/register.do" location="0,461" dimension="271,108" />
+  <StrutsActivity path="/moRegister.do" location="650,150" dimension="271,108" />
+  <StrutsActivity path="/p/form/main.jsp" location="57,362" dimension="136,54" />
+  <StrutsActivity path="/p/form/right.jsp" location="58,0" dimension="134,54" />
+  <StrutsActivity path="/p/form/register.jsp" location="15,669" dimension="150,54" />
+  <StrutsActivity path="/p/form/registerSuccess.jsp" location="265,669" dimension="198,54" />
+  <StrutsActivity path="/m/form/register.jsp" location="350,250" dimension="155,54" />
+  <StrutsActivity path="/m/form/registerSuccess.jsp" location="650,350" dimension="203,54" />
+  <StrutsActivity path="/m/form/register.html" location="950,350" dimension="166,48" />
+  <StrutsTransition id="/m/form/register.html,null,/moRegister.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1033,350" />
+      <AbsolutePoint location="1033,204" />
+      <AbsolutePoint location="921,204" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/p/form/register.jsp,null,/register.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="127,669" />
+      <AbsolutePoint location="127,619" />
+      <AbsolutePoint location="135,619" />
+      <AbsolutePoint location="135,569" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/p/form/right.jsp,null,/main.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="125,54" />
+      <AbsolutePoint location="125,154" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/main.do,main,/p/form/main.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="125,262" />
+      <AbsolutePoint location="125,362" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/m/form/register.jsp,null,/moRegister.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="427,250" />
+      <AbsolutePoint location="427,204" />
+      <AbsolutePoint location="650,204" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/moRegister.do,init,/m/form/register.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="785,258" />
+      <AbsolutePoint location="785,277" />
+      <AbsolutePoint location="505,277" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,init,/p/form/register.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="45,569" />
+      <AbsolutePoint location="45,619" />
+      <AbsolutePoint location="52,619" />
+      <AbsolutePoint location="52,669" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/moRegister.do,success,/m/form/registerSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="815,258" />
+      <AbsolutePoint location="815,350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/register.do,success,/p/form/registerSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="225,569" />
+      <AbsolutePoint location="225,619" />
+      <AbsolutePoint location="334,619" />
+      <AbsolutePoint location="334,669" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
