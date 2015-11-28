@@ -13,7 +13,7 @@
 		</property>
 		<property
 			name="url"
-			value="jdbc:mysql://localhost/logistics">
+			value="jdbc:mysql://localhost/logistics?useUnicode=true&amp;characterEncoding=UTF-8">
 		</property>
 		<property
 			name="username"
