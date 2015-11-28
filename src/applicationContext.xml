@@ -13,15 +13,15 @@
 		</property>
 		<property
 			name="url"
-			value="jdbc:mysql://localhost/wuliu">
+			value="jdbc:mysql://localhost/logistics">
 		</property>
 		<property
 			name="username"
-			value="wuliu">
+			value="root">
 		</property>
 		<property
 			name="password"
-			value="201308">
+			value="chris">
 		</property>
 		<property
 			name="validationQuery"
